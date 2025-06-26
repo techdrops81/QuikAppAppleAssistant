@@ -1,30 +1,26 @@
 enum ProfileType { development, adhoc, appstore, enterprise }
 
 class Profile {
-  final int? id;
+  final String id;
   final String name;
-  final ProfileType type;
-  final String appId;
-  final String? certificateId;
-  final List<String> deviceIds;
-  final String? profilePath;
-  final String? uuid;
-  final DateTime? expiryDate;
-  final bool isActive;
+  final String type;
+  final String status;
+  final DateTime? expirationDate;
+  final String teamId;
+  final String? appId;
+  final String? certificateIds;
   final DateTime createdAt;
   final DateTime updatedAt;
 
   Profile({
-    this.id,
+    required this.id,
     required this.name,
     required this.type,
-    required this.appId,
-    this.certificateId,
-    this.deviceIds = const [],
-    this.profilePath,
-    this.uuid,
-    this.expiryDate,
-    this.isActive = true,
+    required this.status,
+    this.expirationDate,
+    required this.teamId,
+    this.appId,
+    this.certificateIds,
     required this.createdAt,
     required this.updatedAt,
   });
@@ -33,16 +29,14 @@ class Profile {
     return {
       'id': id,
       'name': name,
-      'type': type.name,
+      'type': type,
+      'status': status,
+      'expirationDate': expirationDate?.millisecondsSinceEpoch,
+      'teamId': teamId,
       'appId': appId,
-      'certificateId': certificateId,
-      'deviceIds': deviceIds.join(','),
-      'profilePath': profilePath,
-      'uuid': uuid,
-      'expiryDate': expiryDate?.toIso8601String(),
-      'isActive': isActive ? 1 : 0,
-      'createdAt': createdAt.toIso8601String(),
-      'updatedAt': updatedAt.toIso8601String(),
+      'certificateIds': certificateIds,
+      'createdAt': createdAt.millisecondsSinceEpoch,
+      'updatedAt': updatedAt.millisecondsSinceEpoch,
     };
   }
 
@@ -50,35 +44,28 @@ class Profile {
     return Profile(
       id: map['id'],
       name: map['name'],
-      type: ProfileType.values.firstWhere(
-        (e) => e.name == map['type'],
-        orElse: () => ProfileType.development,
-      ),
-      appId: map['appId'],
-      certificateId: map['certificateId'],
-      deviceIds: map['deviceIds']?.split(',') ?? [],
-      profilePath: map['profilePath'],
-      uuid: map['uuid'],
-      expiryDate: map['expiryDate'] != null
-          ? DateTime.parse(map['expiryDate'])
+      type: map['type'],
+      status: map['status'],
+      expirationDate: map['expirationDate'] != null
+          ? DateTime.fromMillisecondsSinceEpoch(map['expirationDate'])
           : null,
-      isActive: map['isActive'] == 1,
-      createdAt: DateTime.parse(map['createdAt']),
-      updatedAt: DateTime.parse(map['updatedAt']),
+      teamId: map['teamId'],
+      appId: map['appId'],
+      certificateIds: map['certificateIds'],
+      createdAt: DateTime.fromMillisecondsSinceEpoch(map['createdAt']),
+      updatedAt: DateTime.fromMillisecondsSinceEpoch(map['updatedAt']),
     );
   }
 
   Profile copyWith({
-    int? id,
+    String? id,
     String? name,
-    ProfileType? type,
+    String? type,
+    String? status,
+    DateTime? expirationDate,
+    String? teamId,
     String? appId,
-    String? certificateId,
-    List<String>? deviceIds,
-    String? profilePath,
-    String? uuid,
-    DateTime? expiryDate,
-    bool? isActive,
+    String? certificateIds,
     DateTime? createdAt,
     DateTime? updatedAt,
   }) {
@@ -86,13 +73,11 @@ class Profile {
       id: id ?? this.id,
       name: name ?? this.name,
       type: type ?? this.type,
+      status: status ?? this.status,
+      expirationDate: expirationDate ?? this.expirationDate,
+      teamId: teamId ?? this.teamId,
       appId: appId ?? this.appId,
-      certificateId: certificateId ?? this.certificateId,
-      deviceIds: deviceIds ?? this.deviceIds,
-      profilePath: profilePath ?? this.profilePath,
-      uuid: uuid ?? this.uuid,
-      expiryDate: expiryDate ?? this.expiryDate,
-      isActive: isActive ?? this.isActive,
+      certificateIds: certificateIds ?? this.certificateIds,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
     );

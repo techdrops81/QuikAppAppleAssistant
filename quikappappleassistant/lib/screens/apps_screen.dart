@@ -149,7 +149,7 @@ class AppsScreen extends StatelessWidget {
           ),
           TextButton(
             onPressed: () {
-              context.read<AppState>().deleteApp(app.id!);
+              context.read<AppState>().removeApp(app.id);
               Navigator.of(context).pop();
             },
             child: const Text('Delete', style: TextStyle(color: Colors.red)),
@@ -254,12 +254,11 @@ class _AddAppDialogState extends State<AddAppDialog> {
           onPressed: () {
             if (_formKey.currentState!.validate()) {
               final app = AppInfo(
+                id: DateTime.now().millisecondsSinceEpoch.toString(),
                 name: _nameController.text,
                 bundleId: _bundleIdController.text,
+                platform: 'iOS', // Default to iOS for now
                 teamId: _teamIdController.text,
-                description: _descriptionController.text.isEmpty
-                    ? null
-                    : _descriptionController.text,
                 createdAt: DateTime.now(),
                 updatedAt: DateTime.now(),
               );

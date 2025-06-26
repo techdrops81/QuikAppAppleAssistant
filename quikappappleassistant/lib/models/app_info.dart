@@ -1,16 +1,18 @@
 class AppInfo {
-  final int? id;
+  final String id;
   final String name;
   final String bundleId;
+  final String platform;
   final String teamId;
   final String? description;
   final DateTime createdAt;
   final DateTime updatedAt;
 
   AppInfo({
-    this.id,
+    required this.id,
     required this.name,
     required this.bundleId,
+    required this.platform,
     required this.teamId,
     this.description,
     required this.createdAt,
@@ -22,10 +24,11 @@ class AppInfo {
       'id': id,
       'name': name,
       'bundleId': bundleId,
+      'platform': platform,
       'teamId': teamId,
       'description': description,
-      'createdAt': createdAt.toIso8601String(),
-      'updatedAt': updatedAt.toIso8601String(),
+      'createdAt': createdAt.millisecondsSinceEpoch,
+      'updatedAt': updatedAt.millisecondsSinceEpoch,
     };
   }
 
@@ -34,17 +37,19 @@ class AppInfo {
       id: map['id'],
       name: map['name'],
       bundleId: map['bundleId'],
+      platform: map['platform'],
       teamId: map['teamId'],
       description: map['description'],
-      createdAt: DateTime.parse(map['createdAt']),
-      updatedAt: DateTime.parse(map['updatedAt']),
+      createdAt: DateTime.fromMillisecondsSinceEpoch(map['createdAt']),
+      updatedAt: DateTime.fromMillisecondsSinceEpoch(map['updatedAt']),
     );
   }
 
   AppInfo copyWith({
-    int? id,
+    String? id,
     String? name,
     String? bundleId,
+    String? platform,
     String? teamId,
     String? description,
     DateTime? createdAt,
@@ -54,6 +59,7 @@ class AppInfo {
       id: id ?? this.id,
       name: name ?? this.name,
       bundleId: bundleId ?? this.bundleId,
+      platform: platform ?? this.platform,
       teamId: teamId ?? this.teamId,
       description: description ?? this.description,
       createdAt: createdAt ?? this.createdAt,
