@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   // QuikApp Brand Colors
@@ -15,10 +14,14 @@ class AppTheme {
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);
 
+  // Font Family
+  static const String fontFamily = 'Inter';
+
   // Light Theme
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
+    fontFamily: fontFamily,
     colorScheme: const ColorScheme.light(
       primary: primaryBlue,
       secondary: secondaryBlue,
@@ -31,81 +34,96 @@ class AppTheme {
       onBackground: black,
       onError: white,
     ),
-    textTheme: GoogleFonts.interTextTheme().copyWith(
-      displayLarge: GoogleFonts.inter(
+    textTheme: const TextTheme(
+      displayLarge: TextStyle(
         fontSize: 32,
         fontWeight: FontWeight.bold,
         color: black,
+        fontFamily: fontFamily,
       ),
-      displayMedium: GoogleFonts.inter(
+      displayMedium: TextStyle(
         fontSize: 28,
         fontWeight: FontWeight.w600,
         color: black,
+        fontFamily: fontFamily,
       ),
-      displaySmall: GoogleFonts.inter(
+      displaySmall: TextStyle(
         fontSize: 24,
         fontWeight: FontWeight.w600,
         color: black,
+        fontFamily: fontFamily,
       ),
-      headlineLarge: GoogleFonts.inter(
+      headlineLarge: TextStyle(
         fontSize: 22,
         fontWeight: FontWeight.w600,
         color: black,
+        fontFamily: fontFamily,
       ),
-      headlineMedium: GoogleFonts.inter(
+      headlineMedium: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.w600,
         color: black,
+        fontFamily: fontFamily,
       ),
-      headlineSmall: GoogleFonts.inter(
+      headlineSmall: TextStyle(
         fontSize: 18,
         fontWeight: FontWeight.w600,
         color: black,
+        fontFamily: fontFamily,
       ),
-      titleLarge: GoogleFonts.inter(
+      titleLarge: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.w600,
         color: black,
+        fontFamily: fontFamily,
       ),
-      titleMedium: GoogleFonts.inter(
+      titleMedium: TextStyle(
         fontSize: 14,
         fontWeight: FontWeight.w500,
         color: black,
+        fontFamily: fontFamily,
       ),
-      titleSmall: GoogleFonts.inter(
+      titleSmall: TextStyle(
         fontSize: 12,
         fontWeight: FontWeight.w500,
         color: neutralGray,
+        fontFamily: fontFamily,
       ),
-      bodyLarge: GoogleFonts.inter(
+      bodyLarge: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.normal,
         color: black,
+        fontFamily: fontFamily,
       ),
-      bodyMedium: GoogleFonts.inter(
+      bodyMedium: TextStyle(
         fontSize: 14,
         fontWeight: FontWeight.normal,
         color: black,
+        fontFamily: fontFamily,
       ),
-      bodySmall: GoogleFonts.inter(
+      bodySmall: TextStyle(
         fontSize: 12,
         fontWeight: FontWeight.normal,
         color: neutralGray,
+        fontFamily: fontFamily,
       ),
-      labelLarge: GoogleFonts.inter(
+      labelLarge: TextStyle(
         fontSize: 14,
         fontWeight: FontWeight.w500,
         color: primaryBlue,
+        fontFamily: fontFamily,
       ),
-      labelMedium: GoogleFonts.inter(
+      labelMedium: TextStyle(
         fontSize: 12,
         fontWeight: FontWeight.w500,
         color: neutralGray,
+        fontFamily: fontFamily,
       ),
-      labelSmall: GoogleFonts.inter(
+      labelSmall: TextStyle(
         fontSize: 10,
         fontWeight: FontWeight.w500,
         color: neutralGray,
+        fontFamily: fontFamily,
       ),
     ),
     appBarTheme: const AppBarTheme(
@@ -118,6 +136,7 @@ class AppTheme {
         fontSize: 18,
         fontWeight: FontWeight.w600,
         color: black,
+        fontFamily: fontFamily,
       ),
     ),
     cardTheme: const CardThemeData(
@@ -136,7 +155,11 @@ class AppTheme {
         elevation: 0,
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+        textStyle: const TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+          fontFamily: fontFamily,
+        ),
       ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
@@ -145,14 +168,22 @@ class AppTheme {
         side: const BorderSide(color: primaryBlue, width: 1.5),
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+        textStyle: const TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+          fontFamily: fontFamily,
+        ),
       ),
     ),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
         foregroundColor: primaryBlue,
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+        textStyle: const TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+          fontFamily: fontFamily,
+        ),
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
@@ -175,14 +206,24 @@ class AppTheme {
         borderSide: const BorderSide(color: errorRed, width: 1.5),
       ),
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-      hintStyle: TextStyle(color: neutralGray.withOpacity(0.7), fontSize: 16),
+      hintStyle: TextStyle(
+        color: neutralGray.withOpacity(0.7),
+        fontSize: 16,
+        fontFamily: fontFamily,
+      ),
     ),
-    chipTheme: ChipThemeData(
+    chipTheme: const ChipThemeData(
       backgroundColor: accentBlue,
       selectedColor: primaryBlue,
       disabledColor: lightGray,
-      labelStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      labelStyle: TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w500,
+        fontFamily: fontFamily,
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(20)),
+      ),
     ),
     dividerTheme: const DividerThemeData(
       color: lightGray,
@@ -203,6 +244,7 @@ class AppTheme {
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
+    fontFamily: fontFamily,
     colorScheme: const ColorScheme.dark(
       primary: primaryBlue,
       secondary: secondaryBlue,
@@ -215,81 +257,96 @@ class AppTheme {
       onBackground: white,
       onError: white,
     ),
-    textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme).copyWith(
-      displayLarge: GoogleFonts.inter(
+    textTheme: const TextTheme(
+      displayLarge: TextStyle(
         fontSize: 32,
         fontWeight: FontWeight.bold,
         color: white,
+        fontFamily: fontFamily,
       ),
-      displayMedium: GoogleFonts.inter(
+      displayMedium: TextStyle(
         fontSize: 28,
         fontWeight: FontWeight.w600,
         color: white,
+        fontFamily: fontFamily,
       ),
-      displaySmall: GoogleFonts.inter(
+      displaySmall: TextStyle(
         fontSize: 24,
         fontWeight: FontWeight.w600,
         color: white,
+        fontFamily: fontFamily,
       ),
-      headlineLarge: GoogleFonts.inter(
+      headlineLarge: TextStyle(
         fontSize: 22,
         fontWeight: FontWeight.w600,
         color: white,
+        fontFamily: fontFamily,
       ),
-      headlineMedium: GoogleFonts.inter(
+      headlineMedium: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.w600,
         color: white,
+        fontFamily: fontFamily,
       ),
-      headlineSmall: GoogleFonts.inter(
+      headlineSmall: TextStyle(
         fontSize: 18,
         fontWeight: FontWeight.w600,
         color: white,
+        fontFamily: fontFamily,
       ),
-      titleLarge: GoogleFonts.inter(
+      titleLarge: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.w600,
         color: white,
+        fontFamily: fontFamily,
       ),
-      titleMedium: GoogleFonts.inter(
+      titleMedium: TextStyle(
         fontSize: 14,
         fontWeight: FontWeight.w500,
         color: white,
+        fontFamily: fontFamily,
       ),
-      titleSmall: GoogleFonts.inter(
+      titleSmall: TextStyle(
         fontSize: 12,
         fontWeight: FontWeight.w500,
         color: neutralGray,
+        fontFamily: fontFamily,
       ),
-      bodyLarge: GoogleFonts.inter(
+      bodyLarge: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.normal,
         color: white,
+        fontFamily: fontFamily,
       ),
-      bodyMedium: GoogleFonts.inter(
+      bodyMedium: TextStyle(
         fontSize: 14,
         fontWeight: FontWeight.normal,
         color: white,
+        fontFamily: fontFamily,
       ),
-      bodySmall: GoogleFonts.inter(
+      bodySmall: TextStyle(
         fontSize: 12,
         fontWeight: FontWeight.normal,
         color: neutralGray,
+        fontFamily: fontFamily,
       ),
-      labelLarge: GoogleFonts.inter(
+      labelLarge: TextStyle(
         fontSize: 14,
         fontWeight: FontWeight.w500,
         color: primaryBlue,
+        fontFamily: fontFamily,
       ),
-      labelMedium: GoogleFonts.inter(
+      labelMedium: TextStyle(
         fontSize: 12,
         fontWeight: FontWeight.w500,
         color: neutralGray,
+        fontFamily: fontFamily,
       ),
-      labelSmall: GoogleFonts.inter(
+      labelSmall: TextStyle(
         fontSize: 10,
         fontWeight: FontWeight.w500,
         color: neutralGray,
+        fontFamily: fontFamily,
       ),
     ),
     appBarTheme: const AppBarTheme(
@@ -302,6 +359,7 @@ class AppTheme {
         fontSize: 18,
         fontWeight: FontWeight.w600,
         color: white,
+        fontFamily: fontFamily,
       ),
     ),
     cardTheme: const CardThemeData(
@@ -320,7 +378,11 @@ class AppTheme {
         elevation: 0,
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+        textStyle: const TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+          fontFamily: fontFamily,
+        ),
       ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
@@ -329,14 +391,22 @@ class AppTheme {
         side: const BorderSide(color: primaryBlue, width: 1.5),
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+        textStyle: const TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+          fontFamily: fontFamily,
+        ),
       ),
     ),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
         foregroundColor: primaryBlue,
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+        textStyle: const TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+          fontFamily: fontFamily,
+        ),
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
@@ -359,14 +429,24 @@ class AppTheme {
         borderSide: const BorderSide(color: errorRed, width: 1.5),
       ),
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-      hintStyle: TextStyle(color: neutralGray.withOpacity(0.7), fontSize: 16),
+      hintStyle: TextStyle(
+        color: neutralGray.withOpacity(0.7),
+        fontSize: 16,
+        fontFamily: fontFamily,
+      ),
     ),
-    chipTheme: ChipThemeData(
+    chipTheme: const ChipThemeData(
       backgroundColor: darkGray,
       selectedColor: primaryBlue,
       disabledColor: black,
-      labelStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      labelStyle: TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w500,
+        fontFamily: fontFamily,
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(20)),
+      ),
     ),
     dividerTheme: const DividerThemeData(
       color: darkGray,

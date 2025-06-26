@@ -37,32 +37,33 @@ dependencies:
 
   # HTTP and API
   http: ^1.1.0
-  dio: ^5.3.2
+  dio: ^5.3.0
+
+  # UI and Styling
+  flutter_staggered_grid_view: ^0.7.0
+  shimmer: ^3.0.0
+  lottie: ^2.7.0
+  flutter_svg: ^2.0.9
+
+  # State Management
+  provider: ^6.1.1
 
   # Database
   sqflite: ^2.3.0
   path: ^1.8.3
 
-  # File handling
+  # File Handling
   file_picker: ^6.1.1
   path_provider: ^2.1.1
-
-  # UI Components
-  flutter_staggered_grid_view: ^0.7.0
-  flutter_svg: ^2.0.9
-  google_fonts: ^6.1.0
-
-  # State Management
-  provider: ^6.1.1
 
   # Utilities
   crypto: ^3.0.3
   uuid: ^4.2.1
   intl: ^0.19.0
 
-  # Platform specific
-  url_launcher: ^6.2.1
+  # Platform Specific
   permission_handler: ^11.0.1
+  url_launcher: ^6.2.1
 
 dev_dependencies:
   flutter_test:
